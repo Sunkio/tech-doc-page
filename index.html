@@ -1,61 +1,225 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
-</head>
-<body>
-<body>
-<nav id="navbar">
-    <header>Topic of my Tech Doc Page</header>
-    <a class="nav-link" href="#foo1">foo1</a>
-    <a class="nav-link" href="#foo2">foo2</a>
-    <a class="nav-link" href="#foo3">foo3</a>
-    <a class="nav-link" href="#foo4">foo4</a>
-    <a class="nav-link" href="#foo5">foo5</a>
-</nav>
-<main id="main-doc">
-    <section id="foo1" class="main-section">
-        <header>foo1</header>
-        <p></p>
-        <code></code>
-        <li></li>
-        <p></p>
-    </section>
-    <section id="foo2" class="main-section">
-        <header>foo2</header>
-        <p></p>
-        <code></code>
-        <li></li>
-        <p></p>
-    </section>
-    <section id="foo3" class="main-section">
-        <header>foo3</header>
-        <p></p>
-        <code></code>
-        <li></li>
-        <p></p>
-    </section>
-    <section id="foo4" class="main-section">
-        <header>foo4</header>
-        <p></p>
-        <code></code>
-        <li></li>
-        <p></p>
-    </section>
-    <section id="foo5" class="main-section">
-        <header>foo5</header>
-        <p></p>
-        <code></code>
-        <li></li>
-        <p></p>
-    </section>
-</main>
-</body>
+    <title>Using Node.js to Create Web Servers</title>
+  </head>
+  <body>
+    <header>
+      <input id="menu-toggle" type="checkbox" />
+      <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+      </label>
+      <nav id="navbar" class="menu">
+        <header id="nav-header">Node.js Web Server</header>
+        <li><a class="nav-link" href="#1._What_is_Node.js?">1. What is Node.js?</a></li>
+        <li><a class="nav-link" href="#2._Prerequisites">2. Prerequisites</a></li>
+        <li><a class="nav-link" href="#3._Setting_Up_Node.js">3. Setting Up Node.js</a></li>
+        <li><a class="nav-link" href="#4._Creating_a_Node.js_Web_Server">4. Creating a Node.js Web Server</a></li>
+        <li><a class="nav-link" href="#5._Node.js_Server_Routing">5. Node.js Server Routing</a></li>
+        <li><a class="nav-link" href="#6._Serving_Static_Files_with_Node.js">6. Serving Static Files with Node.js</a></li>
+        <li><a class="nav-link" href="#7._Node.js_and_Databases">7. Node.js and Databases</a></li>
+        <li><a class="nav-link" href="#8._Node.js_Web_Security">8. Node.js Web Security</a></li>
+        <li><a class="nav-link" href="#9._Node.js_Performance_Tuning">9. Node.js Performance Tuning</a></li>
+        <li><a class="nav-link" href="#10._Conclusion">10. Conclusion</a></li>
+      </nav>
+    </header>
 
-</body>
+    <main id="main-doc">
+      <div class="bottom-space">
+        <h1>Using Node.js to Create Web Servers</h1>
+        <p class="bold bottom-space">This tutorial will help you understand what Node.js is and how to use it to create web servers. It includes
+          instructions on how to route servers, serve static files, and tips on how to handle databases, ensure web
+          security, and tune performance.</p>
+      </div>
+      <section id="1._What_is_Node.js?" class="main-section">
+        <header>1. What is Node.js?</header>
+        <p>Node.js is a powerful and popular JavaScript platform for developing server-side applications. It is an
+          open-source, cross-platform runtime environment that is widely used for creating web servers and handling
+          requests from clients. Node.js uses an asynchronous event-driven, non-blocking I/O (Input/Output) model
+          that makes it lightweight and efficient. As a result, Node.js is a great choice for creating web servers.</p>
+      </section>
+      <section id="2._Prerequisites" class="main-section">
+        <header>2. Prerequisites</header>
+        <p>This guide assumes that you have the following basic background:</p>
+        <ol>
+          <li>a basic understanding of HTML</li>
+          <li>working knowledge of web development concepts and frameworks</li>
+           <li>good command of the JavaScript language</li>
+          <li>an up-to-date web browser</li>
+          <li>an internet connection to download Node.js and necessary packages</li>
+        </ol>
+      </section>
+      <section id="3._Setting_Up_Node.js" class="main-section">
+        <header>3. Setting Up Node.js</header>
+        <p>Before you can start writing code to create a web server, you need to set up Node.js on your system. To do
+          this, first, download the latest LTS (Long Term Stable) version of Node.js from
+          <a href="https://nodejs.org/en/download/" target="_blank">the official website</a>.There are versions
+          available for Linux, macOS, and Windows. Once downloaded, you can install Node.js with the included
+          installer.</p>
+        <p>You can use your terminal application of choice to test whether Node.js has been installed successfully.
+          Type the following and press 'enter':</p>
+        <code>node –-version</code>
+        <p>This should give you the version of your Node.js install on the next line - for example:</p>
+        <code>v18.12.1</code>
+      </section>
+      <section id="4._Creating_a_Node.js_Web_Server" class="main-section">
+        <header>4. Creating a Node.js Web Server</header>
+        <p>Once Node.js is installed, you can start writing code to create a web server. You need to include the `http`
+          module in your code to do this. This module provides the necessary functions and objects for creating a web
+          server.</p>
+        <p>The following code snippet shows how to create a simple web server using the `http` module:</p>
+        <pre>
+          <code>const http = require('http');
+
+            const hostname = '127.0.0.1';
+            const port = 3000;
+
+            const server = http.createServer((req, res) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('Hello World\n');
+            });
+
+            server.listen(port, hostname, () => {
+            console.log(`Server running at http://${hostname}:${port}/`);
+            });
+          </code>
+        </pre>
+      </section>
+      <section id="5._Node.js_Server_Routing" class="main-section">
+        <header>5. Node.js Server Routing</header>
+        <p>Node.js provides a simple and powerful way to route requests to different handlers. To do this, you can use
+          the `url` module. This module provides functions and objects for parsing URLs and extracting the various
+          components of a URL.</p>
+        <p>The following code snippet shows how to route requests to different handlers based on the URL:</p>
+        <pre>
+          <code>
+            const http = require('http');
+            const url = require('url');
+
+            const hostname = '127.0.0.1';
+            const port = 3000;
+
+            const server = http.createServer((req, res) => {
+            const parsedUrl = url.parse(req.url, true);
+            const path = parsedUrl.pathname;
+            const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+
+            // Route the request to the handler specified in the router
+            const chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
+
+            chosenHandler(function(statusCode, payload){
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(statusCode);
+            res.end(JSON.stringify(payload));
+            });
+            });
+
+            server.listen(port, hostname, () => {
+            console.log(`Server running at http://${hostname}:${port}/`);
+            });
+          </code>
+        </pre>
+      </section>
+      <section id="6._Serving_Static_Files_with_Node.js" class="main-section">
+        <header>6. Serving Static Files with Node.js</header>
+        <p>Node.js can also be used to serve static files such as HTML, CSS, and JavaScript files. To do this, you need
+          to use the `fs` module. This module provides functions and objects for reading and writing files.</p>
+        <p>The following code snippet shows how to serve static files with Node.js:</p>
+        <pre>
+          <code>
+            const http = require('http');
+            const fs = require('fs');
+
+            const hostname = '127.0.0.1';
+            const port = 3000;
+
+            const server = http.createServer((req, res) => {
+              // Get the filename from the request
+              const filename = req.url === '/' ? 'index.html' : req.url;
+
+              // Read the file
+              fs.readFile(`./public/${filename}`, (err, data) => {
+                if (err) {
+                  res.writeHead(404);
+                  res.end('Not Found');
+                } else {
+                  res.writeHead(200);
+                  res.end(data);
+                }
+              });
+            });
+
+            server.listen(port, hostname, () => {
+              console.log(`Server running at http://${hostname}:${port}/`);
+            });
+          </code>
+        </pre>
+      </section>
+      <section id="7._Node.js_and_Databases" class="main-section">
+        <header>7. Node.js and Databases</header>
+        <p>Node.js can also be used to connect to databases such as MySQL and MongoDB. To do this, you need to use a
+          database driver. MongoDB provides an official
+          <a href="https://www.mongodb.com/docs/drivers/node/current/" target="_blank"> MongoDB Node.js driver</a>
+          which can be used to connect to MongoDB databases. Similarly, there are drivers available for other databases
+          such as <a href="https://dev.mysql.com/downloads/connector/nodejs/" target="_blank">MySQL</a> and
+          <a href="https://node-postgres.com/" target="_blank">PostgreSQL</a>.
+        </p>
+      </section>
+      <section id="8._Node.js_Web_Security" class="main-section">
+        <header>8. Node.js Web Security</header>
+        <p>When creating web servers with Node.js, it is important to consider security. It is important to use secure
+          programming practices and to use security best practices. Node.js provides a number of security best practices
+          which can be found <a href="https://nodejs.org/en/docs/guides/security/" target="_blank">here</a>.</p>
+        <p>Examples of security best practices when creating web servers with Node.js include:</p>
+        <ol>
+          <li>Keep Node.js and all associated modules up to date with the latest security patches and releases.</li>
+          <li>Use secure encryption protocols, such as TLS/SSL, for all communication between the client and server.</li>
+          <li>Implement input and data sanitization to prevent malicious code from being executed on the server.</li>
+          <li>Implement authentication and authorization to prevent unauthorized access to the server.</li>
+          <li>Disable all debugging and error reporting features in production environments.</li>
+          <li>Use HTTPS for all requests to prevent man-in-the-middle attacks.</li>
+          <li>Use secure session management to prevent session hijacking.</li>
+          <li>Use a web application firewall to protect against malicious requests.</li>
+        </ol>
+      </section>
+      <section id="9._Node.js_Performance_Tuning" class="main-section">
+        <header>9. Node.js Performance Tuning</header>
+        <p>Once your Node.js web server is up and running, it is important to consider performance. Here are a few tips
+        on how to improve performance:</p>
+        <ol>
+          <li>Utilize caching techniques – caching can significantly improve performance by reducing the time needed to
+            generate dynamic content.</li>
+          <li>Reduce the number of dependencies – managing too many dependencies can slow down your server, so try to
+            use only the necessary ones.</li>
+          <li>Optimize your code – use techniques such as minifying JavaScript and CSS files, as well as reducing the
+            amount of data sent over the wire.</li>
+          <li>Perform regular server health checks – make sure to regularly check your server’s performance and look for
+            any signs of degradation.</li>
+          <li>Use a content delivery network (CDN) – a CDN can help reduce latency by distributing content closer to
+            users, resulting in faster page loads.</li>
+          <li>Utilize serverless functions – serverless functions are an effective way to offload tasks to external
+            services, allowing you to focus on your core business logic.</li>
+          <li>Monitor and measure performance – use tools such as New Relic to monitor and measure the performance of
+            your Node.js server in real-time.</li>
+        </ol>
+         You can find more (unofficial) performance tuning tips for example in
+        <a href="https://blog.appsignal.com/2021/11/24/7-ways-to-improve-nodejs-performance-at-scale.html" target=""_blank>
+          this blog post</a> on AppSignal.
+      </section>
+      <section id="10._Conclusion" class="main-section">
+        <header>10. Conclusion</header>
+        <p>In this tutorial, we have looked at how to use Node.js to create web servers. We have seen how to set up
+          Node.js, how to create a web server using the `http` module, how to route requests using the `url` module, and
+          how to serve static files using the `fs` module. We have also looked at how to connect to databases using
+          database drivers and how to use security best practices. Finally, we have looked at how to use
+          performance-tuning tips to optimize your web server.</p>
+      </section>
+    </main>
+  </body>
 </html>
