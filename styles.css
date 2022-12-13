@@ -1,44 +1,40 @@
-:root {
-    --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-    --black: #2d2d2d;
-    --white: #fff;
-    --light-blue: #00a2ff;
-    --blue: #003366;
-    --green: #8fbc8f;
-    --gray: #f4f4f4;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-}
-
 html,
 body {
-    min-height: 100%;
     min-width: 290px;
-    color: var(--black);
-    background-color: var(--white);
-    font-family: var(--system-ui);
+    color: #4d4e53;
+    background-color: #ffffff;
+    font-family: 'Open Sans', Arial, sans-serif;
     line-height: 1.5;
-    font-size: 18px;
-    box-sizing: border-box;
 }
 
-/* Navbar */
 #navbar {
     position: fixed;
     min-width: 290px;
     top: 0px;
     left: 0px;
     width: 300px;
-    height: 75%;
+    height: 100%;
+    background-color: lightcoral;
+    overflow: scroll;
+
+}
+
+.top-nav {
     border-right: solid;
     border-color: rgba(0, 22, 22, 0.4);
-    margin-bottom: 2em;
-    color: var(--blue);
+    background-color: yellow;
+}
+
+header {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#main-doc header {
+    text-align: left;
+    margin: 0px;
 }
 
 #navbar ul {
@@ -49,160 +45,21 @@ body {
 }
 
 #navbar li {
+    color: #4d4e53;
     border-top: 1px solid;
-    list-style: outside;
+    list-style: none;
     position: relative;
     width: 100%;
-    line-height: 1.5em;
-    margin: 0 5% 2% 5%;
 }
 
 #navbar a {
     display: block;
     padding: 10px 30px;
-    color: var(--blue);
+    color: #4d4e53;
     text-decoration: none;
     cursor: pointer;
 }
 
-.menu > li {
-    margin: 0 1rem;
-    overflow: hidden;
-}
-
-.nav-link {
-    color: #c4c4c4;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: #c79642;
-    text-decoration: underline;
-}
-
-.nav-link:active {
-    color: #c79642;
-}
-
-.menu-button-container {
-    display: none;
-    height: 100%;
-    width: 30px;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-    display: block;
-    background-color: #c4c4c4;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 2px;
-}
-
-.menu-button::before {
-    content: '';
-    margin-top: -8px;
-}
-
-.menu-button::after {
-    content: '';
-    margin-top: 8px;
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::before {
-    margin-top: 0px;
-    transform: rotate(405deg);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button {
-    background: rgba(255, 255, 255, 0);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0px;
-    transform: rotate(-405deg);
-}
-
-@media (max-width: 700px) {
-    .menu-button-container {
-        display: flex;
-    }
-    .menu {
-        position: absolute;
-        top: 0;
-        margin-top: 50px;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-    #menu-toggle ~ .menu li {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    #menu-toggle:checked ~ .menu li {
-        border: 1px solid #333;
-        height: 2.5em;
-        padding: 0.5em;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .menu > li {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0.5em 0;
-        width: 100%;
-        color: var(--white);
-        background-color: var(--blue);
-    }
-    .menu > li:not(:last-child) {
-        border-bottom: 1px solid #c4c4c4;
-    }
-    #nav-header {
-        display: none;
-    }
-}
-
-a {
-    color: var(--blue);
-}
-
-a:visited{
-    color: var(--light-blue);
-}
-
-/* Navbar end */
-
-header {
-    color: var(--black);
-    margin: 10px;
-    text-align: center;
-    font-size: 1.8em;
-}
-
-#nav-header {
-    color: var(--blue);
-}
-
-h1 {
-    text-align: center;
-    margin: 0px;
-}
 #main-doc {
     position: absolute;
     margin-left: 310px;
@@ -228,21 +85,21 @@ code {
     word-break: normal;
     word-wrap: normal;
     line-height: 2;
-    background-color: var(--gray);
+    background-color: #f7f7f7;
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
 }
-/* FCC solution
+
 @media only screen and (max-width: 815px) {
-    /* For mobile phones:
+    /* For mobile phones: */
     #navbar ul {
         border: 1px solid;
         height: 207px;
     }
 
     #navbar {
-        background-color: var(--light-blue);
+        background-color: white;
         position: absolute;
         top: 0;
         padding: 0;
@@ -275,206 +132,3 @@ code {
         min-width: 233px;
     }
 }
-*/
-/*
-Old CSS:
-
-
-
-h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 2rem 1rem 0.5rem 1rem;
-}
-
-header {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-#main-doc {
-    margin: 0 auto;
-    padding: 20px;
-}
-
-#navbar > li {
-    list-style: outside;
-    text-align: left;
-    line-height: 1.5em;
-    margin: 0 5% 2% 5%;
-}
-
-a {
-    color: #003366;
-}
-
-a:visited{
-    color: #00a2ff;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.bottom-space, .main-section {
-    margin-bottom: 2%;
-}
-
-.top-space {
-    margin-top: 1.5rem;
-}
-
-
-
-/* Nav Bar */
-/*
-#navbar {
-    position: fixed;
-    min-width: 290px;
-    top: 0px;
-    left: 0px;
-    width: 300px;
-    height: 100%;
-    border-right: solid;
-    border-bottom: solid 2px;
-    border-color: rgba(0, 51, 102, 0.4);
-}
-/*
-.top-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #26291b;
-    color: #c4c4c4;
-    height: 50px;
-    padding: 1em;
-    position: fixed;
-    width: 100%
-}
-*/
-/*
-.menu {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu > li {
-    margin: 0 1rem;
-    overflow: hidden;
-}
-
-.nav-link {
-    color: #c4c4c4;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: #c79642;
-    text-decoration: underline;
-}
-
-.nav-link:active {
-    color: #c79642;
-}
-
-.menu-button-container {
-    display: none;
-    height: 100%;
-    width: 30px;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-    display: block;
-    background-color: #c4c4c4;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 2px;
-}
-
-.menu-button::before {
-    content: '';
-    margin-top: -8px;
-}
-
-.menu-button::after {
-    content: '';
-    margin-top: 8px;
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::before {
-    margin-top: 0px;
-    transform: rotate(405deg);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button {
-    background: rgba(255, 255, 255, 0);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0px;
-    transform: rotate(-405deg);
-}
-
-@media (max-width: 700px) {
-    .menu-button-container {
-        display: flex;
-    }
-    .menu {
-        position: absolute;
-        top: 0;
-        margin-top: 50px;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-    #menu-toggle ~ .menu li {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    #menu-toggle:checked ~ .menu li {
-        border: 1px solid #333;
-        height: 2.5em;
-        padding: 0.5em;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .menu > li {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0.5em 0;
-        width: 100%;
-        color: #c4c4c4;
-        background-color: #26291b;
-    }
-    .menu > li:not(:last-child) {
-        border-bottom: 1px solid #c4c4c4;
-    }
-    #nav-header {
-        display: none;
-    }
-}
-
-/* Nav bar end */
