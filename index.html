@@ -77,7 +77,7 @@
           module in your code to do this. This module provides the necessary functions and objects for creating a web
           server.</p>
         <p>The following code snippet shows how to create a simple web server using the `http` module:</p>
-        <code>
+        <pre>
           const http = require('http');
           const hostname = '127.0.0.1';
           const port = 3000;
@@ -103,7 +103,7 @@
           server.listen(port, hostname, () => {
           console.log(`Server running at http://${hostname}:${port}/`);
           });
-        </code>
+        </pre>
         <code class="hidden"></code>
       </section>
       <section id="5._Node.js_Server_Routing" class="main-section">
@@ -112,7 +112,7 @@
           the `url` module. This module provides functions and objects for parsing URLs and extracting the various
           components of a URL.</p>
         <p>The following code snippet shows how to route requests to different handlers based on the URL:</p>
-        <code>
+        <pre>
           const http = require('http');
           const url = require('url');
 
@@ -137,7 +137,7 @@
           server.listen(port, hostname, () => {
           console.log(`Server running at http://${hostname}:${port}/`);
           });
-        </code>
+        </pre>
         <code class="hidden"></code>
       </section>
       <section id="6._Serving_Static_Files_with_Node.js" class="main-section">
@@ -145,7 +145,7 @@
         <p>Node.js can also be used to serve static files such as HTML, CSS, and JavaScript files. To do this, you need
           to use the `fs` module. This module provides functions and objects for reading and writing files.</p>
         <p>The following code snippet shows how to serve static files with Node.js:</p>
-        <code>
+        <pre>
             const http = require('http');
             const fs = require('fs');
 
@@ -171,7 +171,7 @@
             server.listen(port, hostname, () => {
               console.log(`Server running at http://${hostname}:${port}/`);
             });
-        </code>
+        </pre>
         <code class="hidden"></code>
       </section>
       <section id="7._Node.js_and_Databases" class="main-section bottom-space">

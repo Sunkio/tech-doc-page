@@ -1,10 +1,29 @@
+:root {
+    --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+    --black: #2d2d2d;
+    --white: #fff;
+    --light-blue: #00a2ff;
+    --blue: #003366;
+    --green: #8fbc8f;
+    --gray: #f7f7f7;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     min-width: 290px;
-    color: #4d4e53;
-    background-color: #ffffff;
-    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--system-ui);
     line-height: 1.5;
+    font-size: 18px;
+    box-sizing: border-box;
 }
 
 #navbar {
@@ -14,7 +33,8 @@ body {
     left: 0px;
     width: 300px;
     height: 100%;
-    background-color: lightcoral;
+    background-color: var(--light-blue);
+    color: var(--gray);
     overflow: scroll;
 
 }
@@ -26,7 +46,7 @@ body {
 }
 
 header {
-    color: black;
+    color: var(--black);
     margin: 10px;
     text-align: center;
     font-size: 1.5em;
@@ -37,6 +57,10 @@ header {
     margin: 0px;
 }
 
+#nav-header {
+    color: var(--gray);
+}
+
 #navbar ul {
     height: 88%;
     padding: 0;
@@ -45,7 +69,6 @@ header {
 }
 
 #navbar li {
-    color: #4d4e53;
     border-top: 1px solid;
     list-style: none;
     position: relative;
@@ -55,9 +78,19 @@ header {
 #navbar a {
     display: block;
     padding: 10px 30px;
-    color: #4d4e53;
     text-decoration: none;
     cursor: pointer;
+    color: var(--gray);
+}
+
+#navbar a:hover {
+    background-color: var(--gray);
+    color: var(--light-blue);
+}
+
+#navbar a:active {
+    background-color: var(--gray);
+    color: var(--blue);
 }
 
 #main-doc {
@@ -85,10 +118,28 @@ code {
     word-break: normal;
     word-wrap: normal;
     line-height: 2;
-    background-color: #f7f7f7;
+    background-color: var(--gray);
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
+}
+
+pre {
+    diplay:block;
+    position: relative;
+    text-align: left;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    white-space: default;
+    background-color: var(--gray);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
 }
 
 @media only screen and (max-width: 815px) {
@@ -99,7 +150,6 @@ code {
     }
 
     #navbar {
-        background-color: white;
         position: absolute;
         top: 0;
         padding: 0;
