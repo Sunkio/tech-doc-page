@@ -45,7 +45,6 @@ body {
 
 #nav-header {
     color: var(--gray);
-    padding-left: 5%;
 }
 
 #navbar ul {
@@ -134,7 +133,13 @@ code {
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
+    white-space: pre-wrap;
     overflow: auto;
+}
+
+.pre-container {
+    width: 100%;
+    height: 100%
 }
 
 pre {
@@ -143,6 +148,9 @@ pre {
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    white-space: pre-wrap;
     overflow: auto;
 }
 

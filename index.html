@@ -15,7 +15,7 @@
         <div class='menu-button'></div>
       </label>
       <nav id="navbar" class="menu">
-        <header id="nav-header">Node.js Web Server</header>
+        <header id="nav-header"><a href="#main-doc">Node.js Web Server</a></header>
         <ul class="nav-menu">
           <li><a class="nav-link" href="#1._What_is_Node.js?">1. What is Node.js?</a></li>
           <li><a class="nav-link" href="#2._Prerequisites">2. Prerequisites</a></li>
@@ -77,8 +77,7 @@
           module in your code to do this. This module provides the necessary functions and objects for creating a web
           server.</p>
         <p class="bottom-space-md">The following code snippet shows how to create a simple web server using the `http` module:</p>
-        <div class="pre-container">
-           <pre>
+         <pre>
 const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -104,7 +103,6 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });</pre>
-        </div>
         <code class="hidden"></code>
       </section>
       <section id="5._Node.js_Server_Routing" class="main-section">
