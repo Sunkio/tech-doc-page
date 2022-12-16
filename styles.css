@@ -43,7 +43,7 @@ body {
 }
 
 #nav-header {
-    color: var(--gray);
+    color: var(--black);
 }
 
 #navbar ul {
@@ -68,7 +68,7 @@ body {
     padding: 10px 30px;
     text-decoration: none;
     cursor: pointer;
-    color: var(--gray);
+    color: var(--black);
 }
 
 #navbar a:hover {
@@ -116,7 +116,7 @@ header {
 }
 
 section li {
-    margin: 0 2% 1% 4%;
+    margin: 0 1% 2% 4%;
 }
 
 section li:last-child {
