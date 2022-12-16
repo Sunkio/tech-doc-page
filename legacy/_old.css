@@ -26,6 +26,8 @@ html {
     box-sizing: border-box;
 }
 
+
+
 body {
     background-color: var(--white);
 }
@@ -43,26 +45,33 @@ body {
 
 }
 
+.top-nav {
+    border-right: solid;
+    border-color: rgba(0, 22, 22, 0.4);
+    background-color: yellow;
+}
+
+header {
+    color: var(--black);
+    font-size: 1.5em;
+}
+
 #nav-header {
     color: var(--gray);
-    padding-left: 5%;
 }
 
 #navbar ul {
-    height: 100%;
+    height: 88%;
     padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-
 
 #navbar li {
     border-top: 1px solid;
     list-style: none;
     position: relative;
     width: 100%;
-}
-
-#navbar li:last-child {
-    margin-bottom: 20px;
 }
 
 #navbar a {
@@ -83,81 +92,79 @@ body {
     color: var(--blue);
 }
 
-
-h1 {
-    font-size: 2.5em;
-    color: var(--black);
-    margin-bottom: 1%;
-}
-
-header {
-    color: var(--black);
-    font-size: 1.5em;
-}
-
 #main-doc {
+    position: absolute;
     margin-left: 310px;
     padding: 30px;
-    margin-bottom: 5%;
+    margin-bottom: 110px;
 }
 
-#main-doc a {
-    color: var(--blue);
-}
-
-#main-doc a:visited {
-    color: var(--light-blue);
-}
-
-#main-doc header {
-    margin-bottom: 1%;
-}
-
-.main-section {
-    margin-bottom: 5%;
+section p {
+    font-size: 0.96em;
 }
 
 section li {
-    margin: 0 2% 1% 4%;
-}
+    margin: 0 2% 2% 4%;
 
-section li:last-child {
-    margin-bottom: 2%;
 }
 
 code {
     display: block;
     text-align: left;
+    white-space: pre-line;
     position: relative;
+    word-break: normal;
+    word-wrap: normal;
     line-height: 2;
     background-color: var(--gray);
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
-    overflow: auto;
-}
-
-pre {
-    line-height: 2;
-    background-color: var(--gray);
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    overflow: auto;
-}
-
-.bottom-space-bg {
-    margin-bottom: 5%;
-}
-
-.bottom-space-md {
-    margin-bottom: 2%;
-}
-
-.bottom-space-sm {
-    margin-bottom: 1%;
 }
 
 .hidden {
     display: none;
+}
+
+
+
+@media only screen and (max-width: 815px) {
+    /* For mobile phones:*/
+    #navbar ul {
+        border: 1px solid;
+        height: 207px;
+    }
+
+    #navbar {
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-height: 275px;
+        border: none;
+        z-index: 1;
+        border-bottom: 2px solid;
+    }
+
+    #main-doc {
+        position: relative;
+        margin-left: 0px;
+        margin-top: 270px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #main-doc {
+        margin-left: -10px;
+    }
+
+    code {
+        margin-left: -20px;
+        width: 100%;
+        padding: 15px;
+        padding-left: 10px;
+        padding-right: 45px;
+        min-width: 233px;
+    }
 }
